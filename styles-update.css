@@ -1,0 +1,94 @@
+/* Load AFTER styles.css. Overrides only what changed. */
+:root {
+  --black: #17120e;
+  --stone: #1f1913;
+  --white: #f6efe4;
+  --gold: #e8a33d;
+  --line: rgba(255, 240, 215, .14);
+  --serif: "DM Sans", Arial, sans-serif;
+}
+
+body { font-size: 16px; }
+
+/* Sentence case and readable sizes instead of tiny tracked caps */
+.desktop-nav, .header-cta, .btn, .text-link, .footer-links, .footer-socials > div, .whatsapp, .mobile-menu {
+  text-transform: none; letter-spacing: 0; font-size: 14px;
+}
+.btn { font-size: 15px; min-height: 52px; }
+.eyebrow { text-transform: none; letter-spacing: 0; font-size: 13px; }
+.brand { text-transform: none; letter-spacing: 0; font-size: 16px; }
+
+/* No italic serif accent word */
+h1 em, h2 em { font-family: inherit; font-style: normal; }
+.hero h1 { font-size: clamp(40px, 6.2vw, 84px); letter-spacing: -.035em; line-height: 1.02; max-width: 15ch; }
+.hero-copy { font-size: 18px; max-width: 540px; color: #e2d8c8; }
+.hero-image { filter: none; }
+.hero-overlay { background: linear-gradient(90deg, rgba(18,13,9,.9) 0%, rgba(18,13,9,.55) 50%, rgba(18,13,9,.15) 100%), linear-gradient(0deg, rgba(18,13,9,.8), transparent 40%); }
+
+/* Trust strip */
+.trust { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-bottom: 1px solid var(--line); }
+.trust div { padding: 26px 7vw 26px 28px; border-right: 1px solid var(--line); }
+.trust div:first-child { padding-left: 7vw; }
+.trust div:last-child { border-right: 0; }
+.trust strong { display: block; font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.trust span { font-size: 14px; color: var(--muted); }
+
+/* Headings and body copy */
+.section-heading h2 { letter-spacing: -.025em; font-weight: 600; }
+.section-intro { font-size: 16px; color: #b9ae9d; }
+.trip-date { text-transform: none; letter-spacing: 0; font-size: 13px; color: #b9ae9d; }
+.trip-body h3 { font-weight: 600; }
+.trip-body li { font-size: 15px; color: #d4c9b8; }
+.price-row span { font-size: 14px; }
+.fine { font-size: 14px; color: #c9bead; margin: 6px 0; }
+.fine b { color: var(--white); font-weight: 600; }
+.trip-body .btn { margin-top: 18px; }
+.tag { text-transform: none; letter-spacing: 0; font-size: 12px; font-weight: 700; }
+
+/* Photos: your own, not stock */
+.image-samburu { background-image: linear-gradient(0deg, rgba(0,0,0,.4), transparent), url("https://lkglobaltravelandsafaris.netlify.app/images/vibe6.jpg"); }
+.image-longonot { background-image: linear-gradient(0deg, rgba(0,0,0,.35), transparent), url("https://lkglobaltravelandsafaris.netlify.app/images/vibe3.jpg"); }
+.image-summertide { background-image: linear-gradient(0deg, rgba(0,0,0,.35), transparent), url("https://lkglobaltravelandsafaris.netlify.app/images/vibe1.jpg"); }
+.gallery-item img { filter: none; }
+.gallery-item figcaption { text-transform: none; letter-spacing: 0; font-size: 14px; }
+.gallery-quote { justify-content: flex-end; }
+.gallery-quote p { font-size: 24px; font-weight: 600; letter-spacing: -.01em; }
+
+/* Question cards: no icons or numbers */
+.perk { min-height: 0; padding: 30px 26px 36px; }
+.perk h3 { font-size: 20px; font-weight: 600; margin-top: 0; }
+.perk p { font-size: 15px; color: #c9bead; max-width: 280px; }
+
+/* Booking steps (a real sequence, so numbers stay) */
+.booking-copy h2 { letter-spacing: -.03em; font-weight: 600; }
+.booking-copy > p:not(.eyebrow) { font-size: 16px; color: #c9bead; }
+.step > span { font-family: inherit; font-weight: 700; }
+.step h3 { font-weight: 600; font-size: 20px; }
+.step p:last-child { font-size: 15px; color: #c9bead; }
+
+.faq h2 { font-weight: 600; letter-spacing: -.025em; }
+summary { font-size: 17px; }
+details p { font-size: 15px; color: #c9bead; }
+.footer-top > div:first-child p { font-size: 14px; }
+
+/* Sticky WhatsApp button */
+.wa-float {
+  position: fixed; right: 16px; bottom: 16px; z-index: 40;
+  background: #25d366; color: #0b2a17; font-weight: 700; font-size: 15px;
+  padding: 14px 20px; border-radius: 999px; box-shadow: 0 6px 20px rgba(0,0,0,.4);
+}
+.wa-float:focus-visible, .btn:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+@media (max-width: 900px) {
+  .trust { grid-template-columns: 1fr 1fr; }
+  .trust div, .trust div:first-child { padding: 20px 6vw; border-bottom: 1px solid var(--line); }
+  .trust div:nth-child(2) { border-right: 0; }
+}
+@media (max-width: 600px) {
+  .trust { grid-template-columns: 1fr; }
+  .trust div { border-right: 0; }
+  .hero-copy { font-size: 16px; }
+  .wa-float { left: 16px; right: 16px; text-align: center; }
+  .site-footer { padding-bottom: 90px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
